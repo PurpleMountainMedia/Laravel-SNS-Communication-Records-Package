@@ -1,0 +1,54 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+class CreateSNSCommunicationRecordsTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('sns_communication_records', function (Blueprint $table) {
+            $table->uuid('id')->primary();
+            $table->string('channel_id')->nullable()->default(null);
+            $table->string('internal_ref')->nullable()->default(null);
+            $table->string('internal_id')->nullable()->default(null);
+            $table->uuid('to_id')->nullable()->default(null);
+            $table->string('to_type')->nullable()->default(null);
+            $table->string('from')->nullable()->default(null);
+            $table->string('bcc')->nullable()->default(null);
+            $table->string('cc')->nullable()->default(null);
+            $table->string('reply_to')->nullable()->default(null);
+            $table->string('content_type')->nullable()->default(null);
+            $table->string('type');
+            $table->integer('priority')->nullable()->default(null);
+            $table->string('name')->nullable();
+            $table->string('subject')->nullable();
+            $table->longText('content')->nullable()->default(null);
+            $table->dateTime('sent_at')->nullable()->default(null);
+            $table->dateTime('delivered_at')->nullable()->default(null);
+            $table->dateTime('read_at')->nullable()->default(null);
+            $table->dateTime('clicked_at')->nullable()->default(null);
+            $table->dateTime('bounced_at')->nullable()->default(null);
+            $table->dateTime('complaint_at')->nullable()->default(null);
+            $table->dateTime('rejected_at')->nullable()->default(null);
+            $table->json('extra')->nullable()->default(null);
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('sns_communication_records');
+    }
+}
