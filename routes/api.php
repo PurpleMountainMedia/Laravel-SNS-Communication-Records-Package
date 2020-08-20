@@ -10,4 +10,4 @@
 | contains the "api" middleware group.
 |
 */
-Route::middleware('auth:api')->get('communication-records', 'SNSCommunicationRecordsController');
+Route::middleware(config('snscommunicationrecords.api_middleware'))->get('communication-records', 'SNSCommunicationRecordsController');

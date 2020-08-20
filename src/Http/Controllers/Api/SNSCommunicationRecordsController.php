@@ -22,6 +22,7 @@ class SNSCommunicationRecordsController extends Controller
 
         return SNSCommunicationRecordResource::collection(
             config('snscommunicationrecords.record_class')::with($request->with ?: [])
+                ->orderByDesc('created_at')
                 ->paginate()
         );
     }
