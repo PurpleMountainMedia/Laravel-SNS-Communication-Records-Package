@@ -9,7 +9,7 @@
     ],
     "require": {
         "aws/aws-php-sns-message-validator": "^1.6",
-        "aws/aws-sdk-php": "^3.147"
+        "aws/aws-sdk-php": "~3.0"
     },
     "autoload": {
         "psr-4": {
